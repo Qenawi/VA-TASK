@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+  <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      tools:context=".MainActivity"
+      >
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="162dp"
+        android:layout_marginLeft="157dp"
+        android:layout_marginRight="162dp"
+        android:layout_marginStart="157dp"
+        android:layout_marginTop="16dp"
+        android:onClick="@{()-> viewmodel.calculate()}"
+        android:text="@string/calculate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/l_operator"
+        />
+
+    <!-- first variable -->
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:inputType="number"
+        android:maxLength="8"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:text="@{viewmodel.uiModel.firstVar}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@id/l_title"
+        tools:text="125"
+        />
+    <EditText
+        android:id="@+id/editText_second"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:inputType="number"
+        android:maxLength="8"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:text="@{viewmodel.uiModel.secondVar}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@id/editText"
+        tools:text="125"
+        />
+    <!-- second variable -->
+    <LinearLayout
+        android:id="@+id/l_operator"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_margin="8dp"
+        android:orientation="horizontal"
+        android:weightSum="4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/l_operator_label"
+        >
+      <Button
+          android:id="@+id/l_Add"
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_marginEnd="5dp"
+          android:layout_marginStart="5dp"
+          android:layout_weight="1"
+          android:onClick="@{()-> viewmodel.addOp()}"
+          android:text="@string/add"
+          />
+      <Button
+          android:id="@+id/l_Sub"
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_marginEnd="5dp"
+          android:layout_marginStart="5dp"
+          android:layout_weight="1"
+          android:onClick="@{()-> viewmodel.subOp()}"
+          android:text="@string/sub"
+          />
+      <Button
+          android:id="@+id/l_Mul"
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_marginEnd="5dp"
+          android:layout_marginStart="5dp"
+          android:layout_weight="1"
+          android:onClick="@{()-> viewmodel.mulOp()}"
+          android:text="@string/mul"
+          />
+      <Button
+          android:id="@+id/l_Div"
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_marginEnd="5dp"
+          android:layout_marginStart="5dp"
+          android:layout_weight="1"
+          android:onClick="@{()-> viewmodel.divOp()}"
+          android:text="@string/div"
+          />
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/variable_one"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/editText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editText"
+        />
+    <!-- operator -->
+    <TextView
+        android:id="@+id/l_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:text="VA.TASK"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.50"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0"
+        />
+    <TextView
+        android:id="@+id/textView_sec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/variable_one"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/editText_second"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editText_second"
+        />
+    <!-- Calculate Button -->
+    <TextView
+        android:id="@+id/l_operator_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:text="Select Operator"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editText_second"
+        />
+    <!-- Calculate Result -->
+    <TextView
+        android:id="@+id/l_result_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Task Result"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/l_result_label"
+        adapter="@{viewmodel.uiModel.adapter}"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/calc_item"
+        />
+
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+  <data>
+    <variable
+        name="viewmodel"
+        type="va.task.MathViewModel"
+        />
+  </data>
+</layout>

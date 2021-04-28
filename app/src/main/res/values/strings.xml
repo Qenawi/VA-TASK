@@ -1,0 +1,9 @@
+<resources>
+  <string name="app_name">VA_TASK</string>
+  <string name="variable_one">Variable One</string>
+  <string name="add">Add</string>
+  <string name="sub">Sub</string>
+  <string name="mul">Mul</string>
+  <string name="div">Div</string>
+  <string name="calculate">Calculate</string>
+</resources>
